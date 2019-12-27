@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Use correct character set. -->
+        <meta charset="utf-8">
+        <!-- Tell IE to use the latest, best version. -->
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <!-- Make the app on mobile take up the full browser screen and disable user scaling. -->
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>Iridium Signal Strength</title>
+        <!-- The Cesium library. -->
+        <script src="https://cesium.com/downloads/cesiumjs/releases/1.63/Build/Cesium/Cesium.js"></script>
+        <link href="https://cesium.com/downloads/cesiumjs/releases/1.63/Build/Cesium/Widgets/widgets.css" type="text/css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" type="text/css" rel="stylesheet">
+        <!-- Style our app. -->
+        <link rel="stylesheet" href="index.css" media="screen">
+    </head>
+    <body>
+        <!-- A container for the Cesium Viewer to live in. -->
+        <div id="creditContainer"></div>
+        <div id="cesiumContainer"></div>
+
+        <!-- Some input elements for our app. -->
+        <div class="backdrop" id="menu">
+            <!--img id="logo" src="images/nootropicdesign_logo.png"></img><br/-->
+            <img id="logo" src="images/nootropicdesign_logo.png"></img><br/>
+            <p>
+            Iridium satellite<br/>signal strength
+            </p>
+            <p>
+                <span id="clock"></span>
+            </p>
+            <p>
+                <input type="checkbox" id="showFootprints"/>Show footprints<br/>
+                <input type="range" min="0" max="100" value="58" class="slider" id="footprintRange"><br/>
+                minimum elevation <span id="elevationAngle"></span>&deg;
+            </p>
+            <canvas id="dataPlot"></canvas>
+        </div>
+        <div id="loadingIndicator" class="cover">
+            <div id="loadingIcon" class="loadingIndicator"></div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="tle.js"></script>
+        <script src="app.js"></script>
+            
+    </body>
+</html>
